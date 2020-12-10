@@ -7,6 +7,12 @@ def read_lines_from_file(file_name):
     cleaned_lines.append(line.strip())
   return cleaned_lines
 
+def convert_array_to_int(arr):
+  int_arr = []
+  for i in arr:
+    int_arr.append(int(i))
+  return int_arr
+
 def get_grid_from_lines(input_lines):
   grid = {}
   y = 0
