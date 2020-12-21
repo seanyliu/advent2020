@@ -39,7 +39,7 @@ class Tile:
     self.grid = helpers.transform_rotate_90(self.grid)
 
 # actual code ############################
-input_lines = helpers.read_lines_from_file('input.txt')
+input_lines = helpers.read_lines_from_file('input-mark.txt')
 
 # Part 1 #################################
 
