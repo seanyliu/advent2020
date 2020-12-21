@@ -44,3 +44,53 @@ def get_grid_col_count(grid):
 
 def get_grid_row_count(grid):
   return len(grid[0].keys())
+
+def transform_flip_x(grid):
+  new_grid = {}
+  min_y = min(grid[0].keys())
+  max_y = max(grid[0].keys())
+  for y in range(min_y, max_y+1):
+    min_x = min(grid.keys())
+    max_x = max(grid.keys())
+    for x in range(min_x, max_x+1):
+      new_x = max_x - x
+      if new_x not in new_grid:
+        new_grid[new_x] = {}
+      new_grid[new_x][y] = grid[x][y]
+  return new_grid
+
+def transform_flip_y(grid):
+  new_grid = {}
+  min_y = min(grid[0].keys())
+  max_y = max(grid[0].keys())
+  for y in range(min_y, max_y+1):
+    min_x = min(grid.keys())
+    max_x = max(grid.keys())
+    for x in range(min_x, max_x+1):
+      new_x = x
+      new_y = max_y - y
+      if new_x not in new_grid:
+        new_grid[new_x] = {}
+      new_grid[new_x][new_y] = grid[x][y]
+  return new_grid
+
+def transform_rotate_90(grid):
+  new_grid = {}
+  min_y = min(grid[0].keys())
+  max_y = max(grid[0].keys())
+  for y in range(min_y, max_y+1):
+    min_x = min(grid.keys())
+    max_x = max(grid.keys())
+    for x in range(min_x, max_x+1):
+      new_x = max_y - y
+      new_y = x
+      #print("x,y from "+str(x)+","+str(y)+" to "+str(new_x)+","+str(new_y))
+      if new_x not in new_grid:
+        new_grid[new_x] = {}
+      new_grid[new_x][new_y] = grid[x][y]
+  return new_grid
+
+def add_to_grid(x, y, value, grid):
+  if x not in grid:
+    grid[x] = {}
+  grid[x][y] = value
